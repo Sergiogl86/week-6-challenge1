@@ -14,3 +14,8 @@ export const borrarTareasAction = (tarea) => ({
   type: actionTypes.borrarTarea,
   tarea,
 });
+
+export const editarTareasAction = (tarea) => ({
+  type: actionTypes.modificarTarea,
+  tarea,
+});
