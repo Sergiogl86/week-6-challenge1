@@ -6,12 +6,14 @@ const Tarea = ({ tarea }) => {
     borrarTarea(tarea);
   };
 
+  const actionEditar = () => {};
+
   return (
     <li>
       <div>
-        {tarea.tarea} -- {`${tarea.done}`}
+        id {tarea.id} -- tarea {tarea.tarea} -- done {`${tarea.done}`}
       </div>
-      <button>||Editar||</button>
+      <button onClick={actionEditar}>||Editar||</button>
       <button onClick={actionBorrar}>||Borrar||</button>
     </li>
   );

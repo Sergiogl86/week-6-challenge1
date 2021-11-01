@@ -2,6 +2,7 @@ import {
   crearTareasAction,
   leerTareasAction,
   borrarTareasAction,
+  editarTareasAction,
 } from "./../actions/actionCreator";
 
 export const leerTareasThunks = () => async (dispatch) => {
@@ -14,7 +15,6 @@ export const leerTareasThunks = () => async (dispatch) => {
 };
 
 export const crearTareasThunks = (tarea) => async (dispatch) => {
-  debugger;
   const data = {
     method: "POST",
     body: JSON.stringify(tarea),
@@ -32,7 +32,6 @@ export const crearTareasThunks = (tarea) => async (dispatch) => {
 };
 
 export const borrarTareasThunks = (tarea) => async (dispatch) => {
-  debugger;
   const data = {
     method: "DELETE",
     headers: {
@@ -45,4 +44,20 @@ export const borrarTareasThunks = (tarea) => async (dispatch) => {
   );
 
   dispatch(borrarTareasAction(tarea));
+};
+
+export const editarTareasThunks = (tarea) => async (dispatch) => {
+  const data = {
+    method: "PUT",
+    body: JSON.stringify(tarea),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  await fetch(
+    `https://week-6-challenge-1.herokuapp.com/week6/${tarea.id}`,
+    data
+  );
+
+  dispatch(editarTareasAction(tarea));
 };

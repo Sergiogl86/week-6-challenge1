@@ -4,6 +4,7 @@ import {
   crearTareasThunks,
   leerTareasThunks,
   borrarTareasThunks,
+  editarTareasThunks,
 } from "./../redux/thunks/thunks";
 
 const useTareas = () => {
@@ -15,12 +16,14 @@ const useTareas = () => {
   }, [dispatch]);
 
   const crearTarea = (tarea) => {
-    debugger;
-    dispatch(crearTareasThunks(tarea));
+    if (tarea.id === "") {
+      dispatch(crearTareasThunks({ tarea: tarea.tarea, done: tarea.done }));
+    } else {
+      dispatch(editarTareasThunks({ ...tarea, id: +tarea.id }));
+    }
   };
 
   const borrarTarea = (tarea) => {
-    debugger;
     dispatch(borrarTareasThunks(tarea));
   };
 

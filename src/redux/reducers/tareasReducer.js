@@ -2,7 +2,7 @@ import actionTypes from "./../actions/actionTypes";
 
 const tareasReducer = (tareas = [], action) => {
   let newTareas;
-  debugger;
+
   switch (action.type) {
     case actionTypes.leerTareas:
       newTareas = [...action.tareas];
@@ -12,6 +12,15 @@ const tareasReducer = (tareas = [], action) => {
       break;
     case actionTypes.borrarTarea:
       newTareas = tareas.filter((tarea) => tarea.id !== action.tarea.id);
+      break;
+    case actionTypes.modificarTarea:
+      newTareas = tareas.map((tarea) => {
+        if (tarea.id === action.tarea.id) {
+          return action.tarea;
+        } else {
+          return tarea;
+        }
+      });
       break;
     default:
       newTareas = tareas;

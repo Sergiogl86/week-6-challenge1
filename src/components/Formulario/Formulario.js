@@ -4,8 +4,9 @@ import useTareas from "./../../hooks/useTareas";
 const Formulario = () => {
   const { crearTarea } = useTareas();
   const inicialCambiarTarea = {
+    id: "",
     tarea: "",
-    done: false,
+    done: "",
   };
 
   const [cambiarTarea, SetCambiarTarea] = useState(inicialCambiarTarea);
@@ -25,8 +26,22 @@ const Formulario = () => {
         onSubmit={(event) => {
           event.preventDefault();
           crearTarea(cambiarTarea);
+          SetCambiarTarea({
+            id: "",
+            tarea: "",
+            done: "",
+          });
         }}
       >
+        <div className="form-group">
+          <label htmlFor="id">id tarea:</label>
+          <input
+            type="number"
+            id="id"
+            value={cambiarTarea.id}
+            onChange={changeTarea}
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="tarea">Nombre tarea:</label>
           <input
@@ -46,7 +61,9 @@ const Formulario = () => {
           />
         </div>
         <div className="button-container">
-          <button type="submit">Create</button>
+          <button type="submit">
+            {cambiarTarea.id !== "" ? "Modificar" : "Crear"}
+          </button>
         </div>
       </form>
     </>
