@@ -1,8 +1,9 @@
 import { useState } from "react";
+import useTareas from "./../../hooks/useTareas";
 
 const Formulario = () => {
+  const { crearTarea } = useTareas();
   const inicialCambiarTarea = {
-    id: "",
     tarea: "",
     done: false,
   };
@@ -23,7 +24,7 @@ const Formulario = () => {
         autoComplete="off"
         onSubmit={(event) => {
           event.preventDefault();
-          console.log(cambiarTarea);
+          crearTarea(cambiarTarea);
         }}
       >
         <div className="form-group">

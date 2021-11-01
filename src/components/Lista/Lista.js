@@ -1,7 +1,15 @@
+import { useEffect } from "react";
 import Tarea from "../Tarea/Tarea";
+import useTareas from "./../../hooks/useTareas";
 
 const Lista = () => {
-  let tareas = [
+  const { tareas, leerTareas } = useTareas();
+
+  useEffect(() => {
+    leerTareas();
+  }, [leerTareas]);
+
+  /* let tareas = [
     {
       id: 1,
       tarea: "coser",
@@ -17,7 +25,7 @@ const Lista = () => {
       tarea: "barrer",
       done: false,
     },
-  ];
+  ]; */
 
   return (
     <>
