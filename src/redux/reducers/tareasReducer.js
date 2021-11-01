@@ -10,6 +10,9 @@ const tareasReducer = (tareas = [], action) => {
     case actionTypes.crearTarea:
       newTareas = [...tareas, action.tarea];
       break;
+    case actionTypes.borrarTarea:
+      newTareas = tareas.filter((tarea) => tarea.id !== action.tarea.id);
+      break;
     default:
       newTareas = tareas;
   }

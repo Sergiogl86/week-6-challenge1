@@ -1,6 +1,7 @@
 import {
   crearTareasAction,
   leerTareasAction,
+  borrarTareasAction,
 } from "./../actions/actionCreator";
 
 export const leerTareasThunks = () => async (dispatch) => {
@@ -25,7 +26,23 @@ export const crearTareasThunks = (tarea) => async (dispatch) => {
     `https://week-6-challenge-1.herokuapp.com/week6/`,
     data
   );
-  const tareas = await response.json();
+  tarea = await response.json();
 
-  dispatch(crearTareasAction(tareas));
+  dispatch(crearTareasAction(tarea));
+};
+
+export const borrarTareasThunks = (tarea) => async (dispatch) => {
+  debugger;
+  const data = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  await fetch(
+    `https://week-6-challenge-1.herokuapp.com/week6/${tarea.id}`,
+    data
+  );
+
+  dispatch(borrarTareasAction(tarea));
 };
