@@ -17,16 +17,13 @@ const useTareas = () => {
 
   const crearTarea = (tarea) => {
     if (tarea.id === "") {
-      debugger;
       dispatch(crearTareasThunks({ tarea: tarea.tarea, done: tarea.done }));
     } else {
-      debugger;
       dispatch(editarTareasThunks({ ...tarea, id: +tarea.id }));
     }
   };
 
   const borrarTarea = (tarea) => {
-    debugger;
     dispatch(borrarTareasThunks(tarea));
   };
 

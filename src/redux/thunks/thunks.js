@@ -15,7 +15,6 @@ export const leerTareasThunks = () => async (dispatch) => {
 };
 
 export const crearTareasThunks = (tarea) => async (dispatch) => {
-  debugger;
   const data = {
     method: "POST",
     body: JSON.stringify(tarea),
@@ -33,7 +32,6 @@ export const crearTareasThunks = (tarea) => async (dispatch) => {
 };
 
 export const borrarTareasThunks = (tarea) => async (dispatch) => {
-  debugger;
   const data = {
     method: "DELETE",
     headers: {
@@ -49,7 +47,6 @@ export const borrarTareasThunks = (tarea) => async (dispatch) => {
 };
 
 export const editarTareasThunks = (tarea) => async (dispatch) => {
-  debugger;
   const data = {
     method: "PUT",
     body: JSON.stringify(tarea),

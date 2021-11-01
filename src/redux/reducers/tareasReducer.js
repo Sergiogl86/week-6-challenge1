@@ -2,7 +2,7 @@ import actionTypes from "./../actions/actionTypes";
 
 const tareasReducer = (tareas = [], action) => {
   let newTareas;
-  debugger;
+
   switch (action.type) {
     case actionTypes.leerTareas:
       newTareas = [...action.tareas];
