@@ -1,6 +1,10 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { crearTareasThunks, leerTareasThunks } from "./../redux/thunks/thunks";
+import {
+  crearTareasThunks,
+  leerTareasThunks,
+  borrarTareasThunks,
+} from "./../redux/thunks/thunks";
 
 const useTareas = () => {
   const tareas = useSelector((store) => store.tareas);
@@ -15,10 +19,16 @@ const useTareas = () => {
     dispatch(crearTareasThunks(tarea));
   };
 
+  const borrarTarea = (tarea) => {
+    debugger;
+    dispatch(borrarTareasThunks(tarea));
+  };
+
   return {
     tareas,
     leerTareas,
     crearTarea,
+    borrarTarea,
   };
 };
 

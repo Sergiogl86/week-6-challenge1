@@ -9,3 +9,8 @@ export const crearTareasAction = (tarea) => ({
   type: actionTypes.crearTarea,
   tarea,
 });
+
+export const borrarTareasAction = (tarea) => ({
+  type: actionTypes.borrarTarea,
+  tarea,
+});
