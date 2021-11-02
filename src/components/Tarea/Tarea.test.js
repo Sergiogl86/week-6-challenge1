@@ -1,5 +1,5 @@
 import Tarea from "./Tarea";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import renderWithProviders from "./../../utils/test-utils";
 
 describe("Given a Tarea component", () => {
