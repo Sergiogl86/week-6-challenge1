@@ -24,6 +24,9 @@ const handlers = [
   rest.get(urlApi, (req, res, ctx) => {
     return res(ctx.json(tareasDefecto));
   }),
+  rest.delete(`${urlApi}:id`, (req, res, ctx) => {
+    return res(ctx.json({}));
+  }),
 ];
 
 export default handlers;

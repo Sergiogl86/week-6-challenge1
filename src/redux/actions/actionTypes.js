@@ -3,6 +3,8 @@ const actionTypes = {
   crearTarea: "CREARTAREA",
   borrarTarea: "BORRARTAREA",
   modificarTarea: "MODIFICARTAREA",
+  actualizarTarea: "ACTUALIZARTAREA",
+  limpiarTarea: "LIMPIARTAREA",
 };
 
 export default actionTypes;

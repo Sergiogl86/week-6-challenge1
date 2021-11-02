@@ -19,3 +19,12 @@ export const editarTareasAction = (tarea) => ({
   type: actionTypes.modificarTarea,
   tarea,
 });
+
+export const actualizarTareaAction = (tarea) => ({
+  type: actionTypes.actualizarTarea,
+  tarea,
+});
+
+export const limpiarTareaAction = () => ({
+  type: actionTypes.limpiarTarea,
+});

@@ -1,6 +1,10 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  actualizarTareaAction,
+  limpiarTareaAction,
+} from "../redux/actions/actionCreator";
+import {
   crearTareasThunks,
   leerTareasThunks,
   borrarTareasThunks,
@@ -9,6 +13,7 @@ import {
 
 const useTareas = () => {
   const tareas = useSelector((store) => store.tareas);
+  const currentTarea = useSelector((store) => store.currentTarea);
   const dispatch = useDispatch();
 
   const leerTareas = useCallback(() => {
@@ -27,11 +32,22 @@ const useTareas = () => {
     dispatch(borrarTareasThunks(tarea));
   };
 
+  const mostrarTareaEditar = (tarea) => {
+    dispatch(actualizarTareaAction(tarea));
+  };
+
+  const limpiarTareaEditar = () => {
+    dispatch(limpiarTareaAction());
+  };
+
   return {
     tareas,
     leerTareas,
     crearTarea,
     borrarTarea,
+    currentTarea,
+    mostrarTareaEditar,
+    limpiarTareaEditar,
   };
 };
 
