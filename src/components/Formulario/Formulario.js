@@ -18,10 +18,18 @@ const Formulario = () => {
   }, [currentTarea]);
 
   const changeTarea = (event) => {
-    SetCambiarTarea({
-      ...cambiarTarea,
-      [event.target.id]: event.target.value,
-    });
+    debugger;
+    if (event.target.id === "tarea") {
+      SetCambiarTarea({
+        ...cambiarTarea,
+        [event.target.id]: event.target.value,
+      });
+    } else {
+      SetCambiarTarea({
+        ...cambiarTarea,
+        [event.target.id]: event.target.checked,
+      });
+    }
   };
 
   const formOnsutmit = (event) => {
@@ -70,6 +78,7 @@ const Formulario = () => {
           <label>
             <input
               type="checkbox"
+              id="done"
               checked={cambiarTarea.done}
               onChange={changeTarea}
             />
