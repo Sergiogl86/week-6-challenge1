@@ -67,12 +67,14 @@ const Formulario = () => {
         </div>
         <div>
           <label htmlFor="done">Tarea Realizada:</label>
-          <input
-            type="text"
-            id="done"
-            value={cambiarTarea.done}
-            onChange={changeTarea}
-          />
+          <label>
+            <input
+              type="checkbox"
+              checked={cambiarTarea.done}
+              onChange={changeTarea}
+            />
+            Done
+          </label>
         </div>
 
         <div className="button-container">
