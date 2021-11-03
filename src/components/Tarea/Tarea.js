@@ -1,5 +1,5 @@
 import useTareas from "./../../hooks/useTareas";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Tarea = ({ tarea }) => {
   const { borrarTarea, mostrarTareaEditar, crearTarea } = useTareas();
@@ -8,6 +8,10 @@ const Tarea = ({ tarea }) => {
   };
 
   const [tareaHecha, setTareaHecha] = useState(tarea.done);
+
+  useEffect(() => {
+    setTareaHecha(tarea.done);
+  }, [tarea.done]);
 
   const actionEditar = () => {
     mostrarTareaEditar(tarea);
