@@ -18,7 +18,6 @@ const Formulario = () => {
   }, [currentTarea]);
 
   const changeTarea = (event) => {
-    debugger;
     if (event.target.id === "tarea") {
       SetCambiarTarea({
         ...cambiarTarea,
